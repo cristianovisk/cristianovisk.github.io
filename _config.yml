@@ -25,16 +25,17 @@ description: >- # this means to ignore newlines until "baseurl:"
   Entusiasta de tecnologias livres e astronomia.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://cristianovisk.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-social_links:
-  twitter_username: CristianoHenri4
-  github_username:  cristianovisk
-  linkedIn: in/cristiano-henrique-santos
+permalink: /:categories/:title/
 plainwhite:
   name: Cristiano Henrique
   tagline: SysAdmin, ADAGRI
   date_format: "%b %-d, %Y"
   analytics_id: UA-163467258-1
   disqus_shortname: cristianohenri
+  social_links:
+    twitter: CristianoHenri4
+    github:  cristianovisk
+    linkedIn: in/cristiano-henrique-santos
 # Build settings
 theme: minima
 plugins:
