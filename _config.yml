@@ -13,15 +13,12 @@ email: cristianovisk@gmail.com
 disqus_username: https-cristianovisk-github-io
 show_hero: true
 menu:
-  - title: Home
+  - title: Principal
     url: /
-  - title: About
-    url: /about
-  - title: Contact
-    url: /contact
-  - title: Feed
-    url: /feed.xml
-
+  - title: Sobre
+    url: /sobre
+  - title: Contato
+    url: /contato
 
 # Social Media Settings
 # Remove the item if you don't need it
