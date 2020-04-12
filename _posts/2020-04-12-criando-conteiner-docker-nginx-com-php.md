@@ -8,6 +8,6 @@ image: https://blog.geekhunter.com.br/wp-content/uploads/2019/06/docker-na-prati
 optimized_image:
 category:
 tags: docker
-author:
+author: 
 paginate: false
 ---
