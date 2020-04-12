@@ -23,6 +23,8 @@ email: cristianovisk@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   SysAdmin na Agência de Defesa Agropecuária do Estado do Ceará,
   Entusiasta de tecnologias livres e astronomia.
+locale: pt_BR
+image: https://cristianovisk.github.io/assets/portfolio.png
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://cristianovisk.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /:categories/:title/
@@ -31,7 +33,7 @@ plainwhite:
   tagline: SysAdmin, ADAGRI
   date_format: "%b %-d, %Y"
   analytics_id: UA-163467258-1
-  disqus_shortname: cristianohenri
+  disqus_shortname: https-cristianovisk-github-io
   social_links:
     twitter: CristianoHenri4
     github:  cristianovisk
