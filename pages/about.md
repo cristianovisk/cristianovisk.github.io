@@ -2,7 +2,10 @@
 layout: page
 title: Sobre
 description: SysAdmin na Agência de Defesa Agropecuária do Estado do Ceará,
-  Entusiasta de tecnologias livres e astronomia.
+  Entusiasta de tecnologias livres, astronomia, Ethical Hacking e Computer Forensics.
+
+  Formado em Redes de Computadores pela Universidade Ateneu
+  Pós Graduado em Computação Forense pela Universidade de Fortaleza (UNIFOR)
 permalink: /sobre/
 ---
 
@@ -10,4 +13,7 @@ permalink: /sobre/
 
 # Sobre mim
 SysAdmin na Agência de Defesa Agropecuária do Estado do Ceará,
-Entusiasta de tecnologias livres e astronomia.
+Entusiasta de tecnologias livres e astronomia, Ethical Hacking e Computer Forensics.
+
+- Graduado em Redes de Computadores pela Universidade Ateneu
+- Pós Graduado em Computação Forense pela Universidade de Fortaleza (UNIFOR)
