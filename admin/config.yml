@@ -386,7 +386,7 @@ collections:
                 name: "text"
                 widget: "string"
                 required: false
-              - label: "Go back to top"
+              - label: "Voltar para o topo"
                 name: "back_btn"
                 widget: "string"
                 required: false
