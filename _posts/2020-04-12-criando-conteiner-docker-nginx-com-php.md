@@ -6,7 +6,7 @@ subtitle:
 description:
 image: https://blog.geekhunter.com.br/wp-content/uploads/2019/06/docker-na-pratica-como-construir-uma-aplicacao-2.png
 optimized_image:
-category:
+category: docker
 tags: docker
 author: 
 paginate: false
