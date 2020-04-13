@@ -326,7 +326,7 @@ collections:
                 name: "new_post"
                 widget: "string"
                 required: false
-              - label: "See also"
+              - label: "Veja também"
                 name: "seel_also"
                 widget: "string"
                 required: false
