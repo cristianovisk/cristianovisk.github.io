@@ -4,7 +4,7 @@ layout: post
 title: "Criando contêiner Docker NGINX com PHP"
 subtitle:
 description:
-image: /assets/img/uploads/docker.png
+image: /assets/img/uploads/dockernginxphp.png
 optimized_image:
 category: docker
 tags: docker php nginx
