@@ -79,6 +79,7 @@ Agora criaremos um arquivo por nome *default.conf* com o intuito de configurarmo
                     deny all;
             }
     }
+    
 Adicionamos no Dockerfile:
 
 ```Dockerfile - 4ª linha```
