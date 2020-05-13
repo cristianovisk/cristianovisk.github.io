@@ -7,4 +7,7 @@ permalink: /contato/
 ---
 
 <img class="img-rounded" src="/assets/img/uploads/profile.png" alt="Thiago Rossener" width="200">
-Meus contatos
+
+**Meus contatos:**
+
+**Telegram:** [@Cristianovisk](https://t.me/Cristianovisk)
