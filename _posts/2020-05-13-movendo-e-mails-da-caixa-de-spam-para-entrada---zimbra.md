@@ -32,6 +32,6 @@ Baixe com o comando acima, e em seguida execute com o usuário *zimbra*:
 
 ```$ ./move-mail.sh -domain yourdomain.com -subject Word_In_Subject -fOrig Junk -fDest Inbox```
 
-Agora é sentar tomar um café e esperar os e-mails serem movidos do Spam para a Caixa de Entrada de todos os e-mails.
+Agora é sentar tomar um café e esperar os e-mails serem movidos do Spam para a Caixa de Entrada de todas as contas.
 
 **Observação:** O script foi feito para mover com base no assunto do e-mail, mas é totalmente possível edita-lo para mover com base no remetente ou destinatário, estou disponível para tirar dúvidas no Telegram.
