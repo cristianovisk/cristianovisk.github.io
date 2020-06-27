@@ -48,6 +48,7 @@ Precisamos agora criar um arquivo por nome *nginx.ini* para montarmos as configu
     stdout_logfile_maxbytes = 0
     stderr_logfile = /dev/stderr
     stderr_logfile_maxbytes = 0
+
 Em seguida adicionar no Dockerfile:
 
 ```Dockerfile - 3ª linha```
