@@ -4,11 +4,11 @@ layout: post
 title: "Removendo credenciais vazadas em histórico do Git"
 subtitle:
 description:
-image: /assets/img/uploads/zimbralogo.jpg
+image: /assets/img/uploads/leaks_git.png
 optimized_image:
 category: appsec
 tags: appsec github gitlab git secrets passwords
-author: cristiano
+author: 
 paginate: false
 ---
 Quem nunca teve que mover um e-mail importante da caixa de Spam para Entrada de algumas pessoas manualmente, com certeza você deve ter se perguntando se não dava pra automatizar esse trabalho massante no Zimbra, e eu respondo **sim** é possível.
