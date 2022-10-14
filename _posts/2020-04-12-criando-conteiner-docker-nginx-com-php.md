@@ -62,25 +62,25 @@ Agora criaremos um arquivo por nome *default.conf* com o intuito de configurarmo
 ```default.conf```
 ```shell
 server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        root /var/www/html;
-        index index.php index.html index.htm;
-        location / {
-                try_files $uri $uri/ /index.php?$query_string;
-        }
-        location ~ \.php$ {
-                include fastcgi.conf;
-                fastcgi_read_timeout 300;
-                fastcgi_pass 127.0.0.1:9000;
-                fastcgi_split_path_info ^(.+\.php)(/.+)$;
-                include fastcgi_params;
-                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-                fastcgi_param PATH_INFO $fastcgi_path_info;
-        }
-        location ~ /\.ht {
-                deny all;
-        }
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.php index.html index.htm;
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    location ~ \.php$ {
+        include fastcgi.conf;
+        fastcgi_read_timeout 300;
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
+    location ~ /\.ht {
+        deny all;
+    }
 }
 ```
 Adicionamos no Dockerfile:
@@ -92,6 +92,7 @@ COPY default.conf /etc/nginx/conf.d/default.conf
 *Opcional:* Para testarmos se o container foi configurado corretamente, adicionaremos o arquivo *index.php*.
 
 ```index.php```
+
 ```php
 <?php
     phpinfo();

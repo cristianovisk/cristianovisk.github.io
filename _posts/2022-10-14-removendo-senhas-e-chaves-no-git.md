@@ -62,3 +62,34 @@ alias bfg='docker run --rm -it -v "$(pwd)":/data bfg:latest'
 *Obs:* se o procedimento estiver sendo feito no Powershell, basta trocar **bfg** no início dos comandos seguintes para `docker run --rm -it -v $PWD:/data bfg:latest`.
 
 **2. Clonando repositório comprometido**
+
+Por conta da natureza da alteração que será realizada no repositório destino, iremos realizar um clone espelhado com o seguinte comando:
+```shell
+git clone --mirror $URL_DO_SEU_REPOSITORIO
+```
+**Extra**: Caso queira detectar as senhas que estão vazadas no seu projeto, basta usar a ferramenta [GitLeaks](https://github.com/zricethezav/gitleaks) com o seguinte comando:
+```shell
+gitleaks detect -f json -v | jq '.Description, .Secret'
+```
+**3. Limpando arquivos sensíveis**
+
+Caso seja algum arquivo em especifico que seja necessário remover por inteiro de um repositório como um Private Key de um JWT por exemplo, deve-se usar os seguintes comandos:
+```shell
+bfg --delete-files id_{dsa,rsa} my-repo.git
+bfg --delete-files *.log my-repo.git
+bfg --delete-files my_certificate.p12 my-repo.git
+```
+
+**4. Limpando strings sensíveis**
+
+Na maioria das vezes o problema está em esquecer as chaves/senhas no código em si, ou em histórico de commit, vamos usar de exemplo o Juice-Shop da OWASP com falhas de segurança postas de propósito no projeto para testarmos a remoção das strings sensíveis:
+```shell
+echo "senha_para_remover" >> remover.txt
+echo "aws_key_para_remover" >> remover.txt
+echo "jwt_private_key_para_remover" >> remover.txt
+```
+
+Agora basta executar o comando de remoção:
+```shell
+bfg --replace-text remover.txt my-repo.git
+```
