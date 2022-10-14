@@ -1,14 +1,14 @@
 ---
-date: 2020-05-13 16:34:08
+date: 2022-10-14 14:34:08
 layout: post
-title: "TesteMovendo E-mails da Caixa de Spam para Entrada em Lote - Zimbra"
+title: "Removendo credenciais vazadas em histórico do Git"
 subtitle:
 description:
 image: /assets/img/uploads/zimbralogo.jpg
 optimized_image:
-category: zimbra
-tags: zimbra email
-author:
+category: appsec
+tags: appsec github gitlab git secrets passwords
+author: cristiano
 paginate: false
 ---
 Quem nunca teve que mover um e-mail importante da caixa de Spam para Entrada de algumas pessoas manualmente, com certeza você deve ter se perguntando se não dava pra automatizar esse trabalho massante no Zimbra, e eu respondo **sim** é possível.
