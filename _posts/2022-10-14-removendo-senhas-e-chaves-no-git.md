@@ -39,6 +39,7 @@ Vamos iniciar a instalação via Docker para facilitar nosso trabalho criando vi
 FROM alpine:3.16.2
 WORKDIR /app
 RUN apk update && apk add openjdk11-jre-headless && wget https://repo1.maven.org/maven2/com/madgag/bfg/1.14.0/bfg-1.14.0.jar -O bfg.jar
+WORKDIR /data
 ENTRYPOINT ["java", "-jar", "/app/bfg.jar"]
 ```
 
@@ -51,5 +52,13 @@ Ou se preferir a imagem está disponível no meu Docker Hub [BFG](https://hub.do
 ```shell
 docker pull cristianovisk/bfg:latest
 ```
+
+Vamos criar um ALIAS no BASH para facilitar o próximo passo, lembrando que o comando pode ser inserido no .bashrc do seu usuário para deixar permanente o comando.
+
+```shell
+alias bfg='docker run --rm -it -v "$(pwd)":/data bfg:latest'
+```
+
+*Obs:* se o procedimento estiver sendo feito no Powershell, basta trocar **bfg** no início dos comandos seguintes para `docker run --rm -it -v $PWD:/data bfg:latest`.
 
 **2. Clonando repositório comprometido**

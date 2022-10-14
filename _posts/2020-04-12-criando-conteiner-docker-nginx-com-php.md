@@ -26,7 +26,7 @@ Como a imagem já contém o PHP-FPM 7.2 precisaremos apenas instalar o NGINX e u
 Precisamos agora criar um arquivo por nome *nginx.ini* para montarmos as configurações necessárias para o supervisor subir todos os processos corretamente:
 
 ```nginx.ini```
-
+```config
     [program:nginx]
     command=/usr/sbin/nginx -g "pid /run/nginx.pid; daemon off;"
     autostart=true
@@ -48,17 +48,17 @@ Precisamos agora criar um arquivo por nome *nginx.ini* para montarmos as configu
     stdout_logfile_maxbytes = 0
     stderr_logfile = /dev/stderr
     stderr_logfile_maxbytes = 0
-
+```
 Em seguida adicionar no Dockerfile:
 
 ```Dockerfile - 3ª linha```
-
+```dockerfile
     COPY nginx.ini /etc/supervisor.d/nginx.ini
-
+```
 Agora criaremos um arquivo por nome *default.conf* com o intuito de configurarmos o NGINX para reconhecer arquivos **.php* e interpreta-los.
 
 ```default.conf```
-
+```shell
     server {
             listen 80 default_server;
             listen [::]:80 default_server;
@@ -80,41 +80,41 @@ Agora criaremos um arquivo por nome *default.conf* com o intuito de configurarmo
                     deny all;
             }
     }
-    
+```
 Adicionamos no Dockerfile:
 
 ```Dockerfile - 4ª linha```
-
+```dockerfile
     COPY default.conf /etc/nginx/conf.d/default.conf
-
+```
 *Opcional:* Para testarmos se o container foi configurado corretamente, adicionaremos o arquivo *index.php*.
 
 ```index.php```
-
+```php
     <?php
         phpinfo();
     ?>
-
+```
 Adicionamos também no nosso Dockerfile:
 
 ```Dockerfile - 5ª linha```
-
+```dockerfile
     COPY index.php /var/www/html/index.php
-
+```
 Adicionaremos dois comandos [sed](https://pt.wikipedia.org/wiki/Sed) com *RUN* para os últimos ajustes no ambiente:
 
 ```Dockerfile - 6ª linha```
-
+```dockerfile
     RUN sed -i 's/\;nodaemon\=false/nodaemon\=true/g' /etc/supervisord.conf ; \ # substituirá uma linha no arquivo de configuração para que o serviço supervisord não inicie no modo daemon.
         sed -i 's/user nginx\;/user www\-data\;/' /etc/nginx/nginx.conf # substituirá uma linha no arquivo de configuração do NGINX para que o mesmo suba todos os Workers com permissões do usuário www-data
-
+```
 Para finalizarmos, iremos informar ao nosso contêiner que executará o serviço do Supervisord, que por si subirá o *NGINX e PHP-FPM* com seus Workers.
 ```Dockerfile - 7ª linha```
-
+```dockerfile
     CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-
+```
 O Dockerfile com todos os arquivos que criamos estará em meu [GitHub](https://github.com/cristianovisk/dockerfile_php_nginx):
-
+```dockerfile
     FROM php:7.2-fpm-alpine3.11
     LABEL maintainer=Cristianovisk
     LABEL baseimage=AlpinePHP
@@ -126,7 +126,7 @@ O Dockerfile com todos os arquivos que criamos estará em meu [GitHub](https://g
     RUN sed -i 's/\;nodaemon\=false/nodaemon\=true/g' /etc/supervisord.conf ;\
         sed -i 's/user nginx\;/user www\-data\;/' /etc/nginx/nginx.conf
     CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-
+```
 Agora é só criar a imagem com o comando ```docker build . -t nginx_php:1.0``` estando dentro da pasta com todos os arquivos:
 
 ![Dockerbuildimg](/assets/img/uploads/dockerbuild1.png)

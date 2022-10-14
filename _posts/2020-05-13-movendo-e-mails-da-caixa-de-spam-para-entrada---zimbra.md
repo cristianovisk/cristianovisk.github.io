@@ -23,7 +23,7 @@ Basta substituir os argumentos correntamente:
 - **fDest** (pasta  onde o e-mail será movido, no meu caso é Entrada ou *Inbox*)
 
 O script abaixo está disponível no meu [GitHub](https://github.com/cristianovisk/move-emails-zimbra-folder):
-
+```shell
     #!/bin/bash
 
     # Created by cristianovisk
@@ -77,14 +77,20 @@ O script abaixo está disponível no meu [GitHub](https://github.com/cristianovi
             echo "Chose wrong...";
         fi
     fi
-
-```$ git clone https://github.com/cristianovisk/move-emails-zimbra-folder```
+```
+```shell
+git clone https://github.com/cristianovisk/move-emails-zimbra-folder
+```
 
 Baixe com o comando acima, e em seguida execute com o usuário *zimbra*:
 
-```$ sudo su zimbra```
+```shell
+sudo su zimbra
+```
 
-```$ ./move-mail.sh -domain yourdomain.com -subject Word_In_Subject -fOrig Junk -fDest Inbox```
+```shell
+./move-mail.sh -domain yourdomain.com -subject Word_In_Subject -fOrig Junk -fDest Inbox
+```
 
 Agora é sentar tomar um café e esperar os e-mails serem movidos do Spam para a Caixa de Entrada de todas as contas.
 
