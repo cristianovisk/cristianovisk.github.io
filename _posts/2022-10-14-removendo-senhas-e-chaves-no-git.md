@@ -82,7 +82,7 @@ bfg --delete-files my_certificate.p12 my-repo.git
 
 **4. Limpando strings sensíveis**
 
-Na maioria das vezes o problema está em esquecer as chaves/senhas no código em si, ou em histórico de commit, vamos usar de exemplo o Juice-Shop da OWASP com falhas de segurança postas de propósito no projeto para testarmos a remoção das strings sensíveis:
+Na maioria das vezes o problema está em esquecer as chaves/senhas no código em si, vamos exemplificar o processo de remoção:
 ```shell
 echo "senha_para_remover" >> remover.txt
 echo "aws_key_para_remover" >> remover.txt
@@ -93,3 +93,21 @@ Agora basta executar o comando de remoção:
 ```shell
 bfg --replace-text remover.txt my-repo.git
 ```
+
+**5. Removendo dados lixo**
+
+Para que as mudanças sejam efetivadas e seja removido todo lixo restante no diretório `.git`, basta executar este comando:
+```shell
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+```
+
+**6. Upload do novo repo mirror**
+
+Simplesmente rode o PUSH:
+```shell
+git push
+```
+
+Após isso todas as strings contidas no arquivo `remover.txt` indicado no passo 4 foram trocadas por `***REMOVED***`.
+
+*Atenção: Cuidado, não se deve indicar strings muito genéricas para evitar a remoção de código válido no seu projeto*
