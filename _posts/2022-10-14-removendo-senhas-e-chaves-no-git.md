@@ -11,7 +11,7 @@ tags: appsec github gitlab git secrets passwords
 author: 
 paginate: false
 ---
-Atualmente tem se tornado comum a quantidade de empresas que tem seus dados roubados e estorquidos por pessoas mal intencionadas, e os valores somados as perdas estão apenas no começo início.
+Atualmente tem se tornado comum a quantidade de empresas que tem seus dados roubados e estorquidos por pessoas mal intencionadas, e os valores somados as perdas estão apenas no inicio.
 
 A preocupação das grandes como GitHub e Amazon, levou os mesmos a gerarem alertas automatizados no que tange a vazamento de chaves AWS.
 
@@ -59,7 +59,7 @@ Vamos criar um ALIAS no BASH para facilitar o próximo passo, lembrando que o co
 alias bfg='docker run --rm -it -v "$(pwd)":/data bfg:latest'
 ```
 
-*Obs:* se o procedimento estiver sendo feito no Powershell, basta trocar **bfg** no início dos comandos seguintes para `docker run --rm -it -v $PWD:/data bfg:latest`.
+*Obs:* se o procedimento estiver sendo feito no Powershell, basta trocar **bfg** no inicio dos comandos seguintes para `docker run --rm -it -v $PWD:/data bfg:latest`.
 
 **2. Clonando repositório comprometido**
 
@@ -89,9 +89,10 @@ echo "aws_key_para_remover" >> remover.txt
 echo "jwt_private_key_para_remover" >> remover.txt
 ```
 
-Agora basta executar o comando de remoção:
+Agora basta executar o comando de remoção (dentro do path do projeto):
 ```shell
-bfg --replace-text remover.txt my-repo.git
+bfg --replace-text remover.txt
+rm -f remover.txt
 ```
 
 **5. Removendo dados lixo**
@@ -108,6 +109,8 @@ Simplesmente rode o PUSH:
 git push
 ```
 
-Após isso todas as strings contidas no arquivo `remover.txt` indicado no passo 4 foram trocadas por `***REMOVED***`.
+Após isso todas as strings contidas no arquivo `remover.txt` indicado no passo 4 foram trocadas por `***REMOVED***`, caso queira mudar para um texto customizado basta colocar na linha da secret a seguinte sintax: `$3nh@_M0n$tr@==>REMOVIDO` ou `$3nh@_M0n$tr@==>` para vazio.
 
-*Atenção: Cuidado, não se deve indicar strings muito genéricas para evitar a remoção de código válido no seu projeto*
+**Obs:** *Todo o procedimento só é feito nos commits anteriores, caso a secret esteja no AHEAD COMMIT, recomenda-se tirar manualmente, deixando ela no histórico apenas, e depois ser feito o processo.*
+
+**Atenção**: *Cuidado, não se deve indicar strings muito genéricas para evitar a remoção de código válido no seu projeto*
