@@ -5,7 +5,7 @@ var codeBlocks = document.querySelectorAll('pre.highlight');
 
 codeBlocks.forEach(function (codeBlock) {
   var  Button = document.createElement('button');
-   Button.className = ' ';
+   Button.className = 'copy';
    Button.type = 'button';
    Button.ariaLabel = 'Copiar código';
    Button.innerText = 'Copiar';
