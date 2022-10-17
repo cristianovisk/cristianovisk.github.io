@@ -1,7 +1,7 @@
 ---
 layout: author
 photo: /assets/img/uploads/profile.png
-name: thiagorossener
+name: cristiano
 display_name: Cristiano Henrique
 position: Editor do blog
 bio: AppSec Analyst Senior
